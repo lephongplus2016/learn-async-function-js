@@ -1,6 +1,7 @@
 let add = (a, b, cb) => {
     setTimeout(() => {
         let err, result;
+        // khai báo như này sẽ tự hiểu là undefine
         if (typeof a != "number" || typeof b != "number") {
             err = " Tham so phai la number";
             return cb(err, result);
