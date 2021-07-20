@@ -21,16 +21,25 @@
             });
         };
 
-        let a = add(4, "5").then(
-            (result) => "ket qua:" + result,
-            (err) => "err: " + err
-        );
-        // PromiseResult : underfine, vì nó ko đồng bộ, nên log chạy trước cả hàm add
-        console.log(a);
-        // PromiseResult: 9
-        setTimeout(() => console.log(a), 2500);
-        // nếu là reject thì PromiseResult là reject luôn.
-        // vẫn trả về resolve dù có lỗi: nếu hàm then có xử lý lỗi
-        //nhớ là giá trị trả về của promise nằm ở return của một trong hai function handle ở function then
+        // let a = add(4, "5").then(
+        //     (result) => "ket qua:" + result,
+        //     (err) => "err: " + err
+        // );
+        // // PromiseResult : underfine, vì nó ko đồng bộ, nên log chạy trước cả hàm add
+        // console.log(a);
+        // // PromiseResult: 9
+        // setTimeout(() => console.log(a), 2500);
+        // // nếu là reject thì PromiseResult là reject luôn.
+        // // vẫn trả về resolve dù có lỗi: nếu hàm then có xử lý lỗi
+        // //nhớ là giá trị trả về của promise nằm ở return của một trong hai function handle ở function then
+
+        // Phương thức resolve- trả vè Promise chỉ có resovle
+        let aPromise = Promise.resolve(add(4, 5));
+        aPromise.then((res) => console.log(res));
+        console.log("APromise ne: " + aPromise);
+
+        // Phương thức reject trả về Promise chỉ có reject
+        let aPro = Promise.reject("Bi loi");
+        console.log(aPro);
     </script>
 </html>
